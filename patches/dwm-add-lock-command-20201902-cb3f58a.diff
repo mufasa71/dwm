@@ -1,0 +1,18 @@
+Index: dwm/config.def.h
+===================================================================
+--- dwm.orig/config.def.h
++++ dwm/config.def.h
+@@ -76,11 +76,13 @@ static const char *imgrcmd[]  = { "imgrc
+ 
+ static const char scratchpadname[] = "scratchpad";
+ static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
++static const char *lockcmd[]  = { "loginctl", "lock-session", "c1", NULL };
+ 
+ static Key keys[] = {
+ 	/* modifier                     key        function        argument */
+ 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+ 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
++    { MODKEY|ShiftMask,             XK_l,      spawn,          {.v = lockcmd } },
+ 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = passcmd } },
+ 	{ MODKEY,                       XK_Escape, spawn,          {.v = haltcmd } },
+ 	{ MODKEY,                       XK_c,      spawn,          {.v = clipcmd } },
